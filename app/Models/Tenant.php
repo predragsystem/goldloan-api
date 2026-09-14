@@ -12,7 +12,8 @@ class Tenant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'business_name', 'owner_name', 'phone', 'email', 'status', 'trial_ends_at',
+        'business_name', 'owner_name', 'phone', 'email', 'status',
+        'trial_ends_at', 'interest_calculation_mode',
     ];
 
     protected function casts(): array

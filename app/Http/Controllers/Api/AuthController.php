@@ -11,6 +11,7 @@ use App\Models\Role;
 use App\Models\Tenant;
 use App\Models\User;
 use App\Services\OtpService;
+use App\Support\TenantDefaults;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -46,6 +47,8 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password),
                 'status' => 'active',
             ]);
+
+            TenantDefaults::seed($tenant);
 
             return $tenant;
         });

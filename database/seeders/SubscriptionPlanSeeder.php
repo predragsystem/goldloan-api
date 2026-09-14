@@ -7,21 +7,18 @@ use Illuminate\Database\Seeder;
 
 class SubscriptionPlanSeeder extends Seeder
 {
-    /**
-     * Placeholder prices — update price_paise once real pricing is decided,
-     * and fill in razorpay_plan_id after creating the matching plans in the
-     * Razorpay dashboard/API.
-     */
     public function run(): void
     {
         $plans = [
-            ['name' => 'Monthly', 'slug' => 'monthly', 'duration_days' => 30, 'price_paise' => 99900],
-            ['name' => 'Quarterly', 'slug' => 'quarterly', 'duration_days' => 90, 'price_paise' => 269900],
-            ['name' => 'Yearly', 'slug' => 'yearly', 'duration_days' => 365, 'price_paise' => 999900],
+            ['name' => 'Monthly', 'slug' => 'monthly', 'duration_days' => 30, 'price_paise' => 19900],
+            ['name' => '6 Month', 'slug' => 'half-yearly', 'duration_days' => 182, 'price_paise' => 109900],
+            ['name' => 'Yearly', 'slug' => 'yearly', 'duration_days' => 365, 'price_paise' => 219900],
         ];
 
         foreach ($plans as $plan) {
-            SubscriptionPlan::firstOrCreate(['slug' => $plan['slug']], $plan);
+            // updateOrCreate (not firstOrCreate) so re-running the seeder after a
+            // price change actually updates existing rows instead of ignoring them.
+            SubscriptionPlan::updateOrCreate(['slug' => $plan['slug']], $plan);
         }
     }
 }
