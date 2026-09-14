@@ -33,7 +33,7 @@ Route::prefix('v1')->group(function () {
 
     // --- Authenticated AND subscription must be active: everything loan-domain ---
     Route::middleware(['auth:sanctum', 'subscription.active'])->group(function () {
-        Route::apiResource('customers', CustomerController::class);
+        Route::apiResource('customers', CustomerController::class)->names('api.customers');
         Route::get('/customers/{customer}/loans', [CustomerController::class, 'loans']);
 
         Route::get('/loans', [LoanController::class, 'index']);
@@ -45,7 +45,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/loans/{loan}/top-up', [LoanController::class, 'topUp']);
         Route::post('/loans/{loan}/close', [LoanController::class, 'close']);
 
-        Route::apiResource('jewellery-types', JewelleryTypeController::class)->except(['show']);
-        Route::apiResource('jewellery-qualities', JewelleryQualityController::class)->except(['show']);
+        Route::apiResource('jewellery-types', JewelleryTypeController::class)->except(['show'])->names('api.jewellery-types');
+        Route::apiResource('jewellery-qualities', JewelleryQualityController::class)->except(['show'])->names('api.jewellery-qualities');
     });
 });

@@ -25,10 +25,16 @@ class EnsureSubscriptionActive
         $allowed = $subscription && $graceDeadline && $graceDeadline->isFuture();
 
         if (! $allowed) {
-            return response()->json([
-                'message' => 'Your subscription has expired. Please renew to continue.',
-                'code' => 'SUBSCRIPTION_EXPIRED',
-            ], 403);
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => 'Your subscription has expired. Please renew to continue.',
+                    'code' => 'SUBSCRIPTION_EXPIRED',
+                ], 403);
+            }
+
+            return redirect()
+                ->route('billing.show')
+                ->with('status', 'Your subscription has expired. Please renew to continue.');
         }
 
         return $next($request);
