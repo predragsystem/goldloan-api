@@ -18,23 +18,35 @@
     <table class="w-full text-sm">
         <thead>
             <tr class="border-b border-paper-line text-left text-ink-soft">
+                <th class="px-4 py-3 font-medium"></th>
                 <th class="px-4 py-3 font-medium">Name</th>
                 <th class="px-4 py-3 font-medium">Phone</th>
                 <th class="px-4 py-3 font-medium">Address</th>
+                <th class="px-4 py-3 font-medium"></th>
             </tr>
         </thead>
         <tbody>
             @forelse ($customers as $customer)
                 <tr class="border-b border-paper-line last:border-0 hover:bg-paper/50">
                     <td class="px-4 py-3">
+                        <div class="w-9 h-9 rounded-sm bg-paper border border-paper-line overflow-hidden">
+                            @if ($customer->photo_url)
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($customer->photo_url) }}" class="w-full h-full object-cover">
+                            @endif
+                        </div>
+                    </td>
+                    <td class="px-4 py-3">
                         <a href="{{ route('customers.show', $customer) }}" class="text-ink font-medium hover:underline">{{ $customer->name }}</a>
                     </td>
                     <td class="px-4 py-3 tabular">{{ $customer->phone }}</td>
                     <td class="px-4 py-3 text-ink-soft">{{ $customer->address ?? '—' }}</td>
+                    <td class="px-4 py-3 text-right">
+                        <a href="{{ route('customers.edit', $customer) }}" class="text-sm text-ink-soft hover:text-ink underline">Edit</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="3" class="px-4 py-10 text-center text-ink-soft">
+                    <td colspan="5" class="px-4 py-10 text-center text-ink-soft">
                         No customers yet. <a href="{{ route('customers.create') }}" class="text-ink underline">Add the first one</a>.
                     </td>
                 </tr>

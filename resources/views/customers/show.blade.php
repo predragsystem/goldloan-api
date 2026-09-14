@@ -6,6 +6,14 @@
 
 <div class="grid lg:grid-cols-3 gap-8">
     <div class="border border-paper-line bg-white p-6">
+        <div class="flex items-start justify-between mb-4">
+            <div class="w-20 h-20 rounded-sm bg-paper border border-paper-line overflow-hidden shrink-0">
+                @if ($customer->photo_url)
+                    <img src="{{ \Illuminate\Support\Facades\Storage::url($customer->photo_url) }}" class="w-full h-full object-cover">
+                @endif
+            </div>
+            <a href="{{ route('customers.edit', $customer) }}" class="text-sm text-ink-soft hover:text-ink underline">Edit</a>
+        </div>
         <h2 class="font-display text-lg text-ink">{{ $customer->name }}</h2>
         <dl class="mt-4 space-y-2 text-sm">
             <div class="flex justify-between"><dt class="text-ink-soft">Phone</dt><dd class="tabular">{{ $customer->phone }}</dd></div>

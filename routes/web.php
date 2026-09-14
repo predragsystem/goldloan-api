@@ -35,7 +35,8 @@ Route::prefix('app')->middleware('auth')->group(function () {
 
     // Everything below actually requires an active subscription.
     Route::middleware('subscription.active')->group(function () {
-        Route::resource('customers', CustomerController::class)->except(['edit', 'update', 'destroy']);
+        Route::resource('customers', CustomerController::class)->except(['destroy']);
+        Route::delete('/customers/{customer}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 
         Route::get('/loans', [LoanController::class, 'index'])->name('loans.index');
         Route::get('/loans/create', [LoanController::class, 'create'])->name('loans.create');

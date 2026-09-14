@@ -33,7 +33,7 @@ Route::prefix('v1')->group(function () {
 
     // --- Authenticated AND subscription must be active: everything loan-domain ---
     Route::middleware(['auth:sanctum', 'subscription.active'])->group(function () {
-        Route::apiResource('customers', CustomerController::class)->except(['destroy']);
+        Route::apiResource('customers', CustomerController::class);
         Route::get('/customers/{customer}/loans', [CustomerController::class, 'loans']);
 
         Route::get('/loans', [LoanController::class, 'index']);

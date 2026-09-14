@@ -1,10 +1,10 @@
 <?php
-/*$config['DBHostName'] = "localhost";
+$config['DBHostName'] = "localhost";
 $config['DBUserName']= "root";
 $config['DBPassword']= "";
-$config['DBName']= "money_transfer";
-*/
-$hostname = getenv('HTTP_HOST');
+$config['DBName']= "girviloan";
+
+/*$hostname = getenv('HTTP_HOST');
 if($hostname == "nalge.predragsystem.in"){
 $config['DBHostName'] = "localhost";
 $config['DBUserName'] = "u255014993_clientloan";
@@ -17,7 +17,7 @@ $config['DBHostName'] = "localhost";
 $config['DBUserName'] = "u255014993_apnamunim";
 $config['DBPassword'] = "kC1&LRs#";
 $config['DBName'] = "u255014993_apnamunim";
-}
+}*/
 
  $conn = @mysqli_connect($config['DBHostName'],$config['DBUserName'],$config['DBPassword'],$config['DBName']);
 
