@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div class="mt-10 flex items-center justify-between">
+<div class="mt-10 flex flex-wrap items-center justify-between gap-3">
     <h2 class="font-display text-lg font-semibold text-ink">Recent loans</h2>
     <a href="{{ route('loans.create') }}" class="bg-ink text-paper px-4 py-2 rounded-sm text-sm font-medium hover:bg-brass-dark transition-colors">
         New loan
@@ -31,7 +31,8 @@
 </div>
 
 <div class="mt-4 border border-paper-line bg-white">
-    <table class="w-full text-sm">
+    <div class="overflow-x-auto">
+<table class="w-full text-sm">
         <thead>
             <tr class="border-b border-paper-line text-left text-ink-soft">
                 <th class="px-4 py-3 font-medium">Loan No.</th>
@@ -66,6 +67,7 @@
             @endforelse
         </tbody>
     </table>
+</div>
 </div>
 
 @endsection

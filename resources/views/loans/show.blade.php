@@ -23,7 +23,8 @@
 
         <div class="border border-paper-line bg-white">
             <div class="px-4 py-3 border-b border-paper-line font-medium text-ink">Pledged items</div>
-            <table class="w-full text-sm">
+            <div class="overflow-x-auto">
+<table class="w-full text-sm">
                 <thead>
                     <tr class="border-b border-paper-line text-left text-ink-soft">
                         <th class="px-4 py-2 font-medium">Type</th>
@@ -45,11 +46,13 @@
                     @endforeach
                 </tbody>
             </table>
+</div>
         </div>
 
         <div class="border border-paper-line bg-white">
             <div class="px-4 py-3 border-b border-paper-line font-medium text-ink">Transaction history</div>
-            <table class="w-full text-sm">
+            <div class="overflow-x-auto">
+<table class="w-full text-sm">
                 <thead>
                     <tr class="border-b border-paper-line text-left text-ink-soft">
                         <th class="px-4 py-2 font-medium">Date</th>
@@ -73,6 +76,7 @@
                     @endforeach
                 </tbody>
             </table>
+</div>
         </div>
     </div>
 

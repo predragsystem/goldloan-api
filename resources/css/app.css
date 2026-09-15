@@ -28,3 +28,7 @@
 .tabular {
     font-variant-numeric: tabular-nums;
 }
+
+[x-cloak] {
+    display: none !important;
+}

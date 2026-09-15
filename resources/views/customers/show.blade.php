@@ -24,7 +24,7 @@
     </div>
 
     <div class="lg:col-span-2">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
             <h2 class="font-display text-lg text-ink">Loan history</h2>
             <a href="{{ route('loans.create', ['customer_id' => $customer->id]) }}"
                class="bg-ink text-paper px-4 py-2 rounded-sm text-sm font-medium hover:bg-brass-dark transition-colors">
@@ -33,7 +33,8 @@
         </div>
 
         <div class="border border-paper-line bg-white">
-            <table class="w-full text-sm">
+            <div class="overflow-x-auto">
+<table class="w-full text-sm">
                 <thead>
                     <tr class="border-b border-paper-line text-left text-ink-soft">
                         <th class="px-4 py-3 font-medium">Loan No.</th>
@@ -55,6 +56,7 @@
                     @endforelse
                 </tbody>
             </table>
+</div>
         </div>
     </div>
 </div>

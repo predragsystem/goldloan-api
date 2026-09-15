@@ -15,7 +15,8 @@
 </div>
 
 <div class="mt-6 border border-paper-line bg-white">
-    <table class="w-full text-sm">
+    <div class="overflow-x-auto">
+<table class="w-full text-sm">
         <thead>
             <tr class="border-b border-paper-line text-left text-ink-soft">
                 <th class="px-4 py-3 font-medium"></th>
@@ -53,6 +54,7 @@
             @endforelse
         </tbody>
     </table>
+</div>
 </div>
 
 <div class="mt-4">{{ $customers->links() }}</div>

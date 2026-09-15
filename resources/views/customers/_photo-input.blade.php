@@ -7,7 +7,7 @@
 <div x-data="photoCapture()" class="space-y-3">
     <label class="block text-sm font-medium text-ink mb-1">Photo (optional)</label>
 
-    <div class="flex items-start gap-4">
+    <div class="flex flex-wrap items-start gap-4">
         <div class="w-28 h-28 border border-paper-line bg-paper flex items-center justify-center overflow-hidden rounded-sm shrink-0">
             <img x-show="previewUrl" :src="previewUrl" class="w-full h-full object-cover">
             @isset($existingPhotoUrl)

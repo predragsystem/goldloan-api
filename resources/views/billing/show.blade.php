@@ -18,7 +18,7 @@
 
 <div class="border-t border-paper-line max-w-2xl">
     @foreach ($plans as $plan)
-        <div class="flex items-center justify-between py-6 border-b border-paper-line">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-6 border-b border-paper-line">
             <div>
                 <p class="font-display text-xl text-ink">{{ $plan->name }}</p>
                 <p class="text-sm text-ink-soft">{{ $plan->duration_days }} days of access</p>
